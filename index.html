@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-color: #050605;
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --accent-color: #00ff88;
-            --text-main: #ffffff;
-            --text-sub: #777777;
-            --header-spacing: 80px; /* 上部の余白をプロ仕様に設定 */
+            --bg-color: #f2f3f2; /* 洗練された明るいライトグレー */
+            --card-bg: #ffffff; /* 高級感のある純白のカード */
+            --accent-color: #2c3e2c; /* 深みのあるディープボタニカルグリーン */
+            --hover-border: #8c9c8c; /* ホバー時の柔らかな線の色 */
+            --text-main: #1a1a1a; /* 締まりのある上品な黒 */
+            --text-sub: #666666; /* 読みやすい中間グレー */
+            --header-spacing: 80px; /* プロ仕様のゆったりとした上部余白 */
         }
 
         body {
@@ -23,22 +24,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: var(--header-spacing) 20px 100px; /* 上にしっかり、下にも余韻を */
+            padding: var(--header-spacing) 20px 100px;
             margin: 0;
             min-height: 100vh;
             overflow-x: hidden;
+            /* 明るい背景に美しく馴染む極薄のグリッドライン */
             background-image: 
-                linear-gradient(rgba(0, 255, 136, 0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 136, 0.015) 1px, transparent 1px);
+                linear-gradient(rgba(44, 62, 44, 0.012) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(44, 62, 44, 0.012) 1px, transparent 1px);
             background-size: 50px 50px;
         }
 
         /* --- ヘッダー・ロゴエリア --- */
         .profile {
             text-align: center;
-            margin-bottom: 80px; /* ロゴエリアとリンクの間の余白を拡大 */
+            margin-bottom: 80px;
             width: 100%;
-            height: 100px; /* 固定の高さを確保 */
+            height: 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -47,10 +49,10 @@
 
         .logo {
             width: 100%;
-            max-width: 220px; /* 少し小さくして繊細さを演出 */
+            max-width: 220px;
             height: auto;
-            filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.5));
-            /* アニメーション：中央から上端（paddingで指定した位置）へ */
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.04));
+            /* 中央からヘッダー位置へ移動するアニメーション */
             animation: logoEntryPoint 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
         }
 
@@ -75,10 +77,10 @@
         .tagline {
             font-size: 10px;
             color: var(--text-sub);
-            letter-spacing: 0.4em; /* 文字間をさらに広げて贅沢に */
+            letter-spacing: 0.4em;
             text-transform: uppercase;
             font-weight: 300;
-            margin-top: 25px; /* ロゴとの間隔を広げる */
+            margin-top: 25px;
             opacity: 0;
             animation: fadeIn 0.6s ease 1.3s forwards;
         }
@@ -86,17 +88,15 @@
         /* --- リンクカードエリア --- */
         .link-container {
             width: 100%;
-            max-width: 380px; /* カード幅を少し絞って垂直ラインを強調 */
+            max-width: 380px;
         }
 
         .link-card {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 2px; /* ほぼ直角にしてモダン・シャープに */
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 2px; /* ミニマルさを際立たせるシャープな角 */
             padding: 22px 26px;
-            margin-bottom: 20px; /* カード同士の間隔を少し広げる */
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             text-decoration: none;
@@ -105,9 +105,10 @@
             opacity: 0;
             transform: translateY(20px);
             animation: cardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.015);
         }
 
-        /* 順次登場 */
+        /* タイポを修正し、4つのカードが綺麗に時間差で出るように設定 */
         .link-card:nth-child(1) { animation-delay: 1.5s; }
         .link-card:nth-child(2) { animation-delay: 1.6s; }
         .link-card:nth-child(3) { animation-delay: 1.7s; }
@@ -121,17 +122,17 @@
             to { opacity: 1; }
         }
 
-        /* ホバー時の洗練された動き */
+        /* ホバー時の洗練された浮遊感 */
         .link-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: var(--accent-color);
-            transform: translateY(-2px); /* 拡大ではなく「浮上」 */
+            border-color: var(--hover-border);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
         }
 
         .link-card i {
             font-size: 18px;
             margin-right: 24px;
-            color: #444;
+            color: #888888;
             width: 20px;
             text-align: center;
             transition: 0.4s;
@@ -139,7 +140,6 @@
 
         .link-card:hover i {
             color: var(--accent-color);
-            filter: drop-shadow(0 0 8px var(--accent-color));
         }
 
         .link-text span {
@@ -160,7 +160,7 @@
 
         .arrow {
             font-size: 10px;
-            color: #222;
+            color: #dddddd;
             margin-left: auto;
             transition: 0.4s;
         }
@@ -179,7 +179,17 @@
     </div>
 
     <div class="link-container">
-        <!-- X -->
+        <!-- 1. BOOTH (最上部に配置) -->
+        <a href="https://plantaforma.booth.pm/" class="link-card" target="_blank">
+            <i class="fa-solid fa-shop"></i>
+            <div class="link-text">
+                <span>BOOTH Shop</span>
+                <small>Original Products & Data</small>
+            </div>
+            <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
+        </a>
+
+        <!-- 2. X (Twitter) -->
         <a href="https://x.com/Afk_Ty" class="link-card" target="_blank">
             <i class="fa-brands fa-x-twitter"></i>
             <div class="link-text">
@@ -189,7 +199,7 @@
             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
         </a>
 
-        <!-- YouTube -->
+        <!-- 3. YouTube -->
         <a href="https://youtube.com/@snob_PF" class="link-card" target="_blank">
             <i class="fa-brands fa-youtube"></i>
             <div class="link-text">
@@ -199,22 +209,12 @@
             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
         </a>
 
-        <!-- MakerWorld -->
+        <!-- 4. MakerWorld -->
         <a href="https://makerworld.com/ja/@PlantaForma" class="link-card" target="_blank">
             <i class="fa-solid fa-cube"></i>
             <div class="link-text">
                 <span>MakerWorld</span>
                 <small>3D Data Store</small>
-            </div>
-            <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
-        </a>
-
-        <!-- Creema -->
-        <a href="https://www.creema.jp/c/PlantaForma" class="link-card" target="_blank">
-            <i class="fa-solid fa-store"></i>
-            <div class="link-text">
-                <span>Creema Shop</span>
-                <small>Product Sales</small>
             </div>
             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
         </a>
